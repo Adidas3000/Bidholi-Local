@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stay Finder</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #00c6ff, #ffff66);
+      text-align: center;
+    }
+
+    .search-container {
+      padding: 20px;
+    }
+
+    .search-box {
+      width: 80%;
+      max-width: 600px;
+      padding: 15px;
+      border-radius: 10px;
+      border: 2px solid #000;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      margin: 0 auto 20px auto;
+      background-color: #fff;
+    }
+
+    .search-box input {
+      border: none;
+      outline: none;
+      flex: 1;
+      font-size: 18px;
+      padding: 5px;
+    }
+
+    .search-box i {
+      margin-right: 10px;
+      font-size: 20px;
+    }
+
+    .content {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 20px;
+      position: relative;
+    }
+
+    .slider {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .slider img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .map-container {
+      margin: 0 auto;
+      width: 800px;
+      height: 500px;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .bottom-section {
+      margin-top: 100px;
+    }
+
+    .bottom-section h2 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .buttons a {
+      background-color: #ffd700;
+      padding: 20px 40px;
+      border-radius: 50px;
+      font-size: 20px;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .buttons a:hover {
+      background-color: #ffa500;
+    }
+
+    .location-card-container {
+      margin-top: 60px;
+      padding: 0 20px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .location-card {
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 260px;
+      padding: 20px;
+      text-align: left;
+      transition: transform 0.3s;
+    }
+
+    .location-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .location-card h3 {
+      margin: 0;
+      font-size: 22px;
+      color: #333;
+    }
+
+    .location-card p {
+      font-size: 16px;
+      color: #555;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="search-container">
+    <div class="search-box">
+      <i>🔍</i>
+      <input type="text" placeholder="Search for Hostel / PG / Flat">
+      <i style="cursor:pointer" onclick="clearSearch()">❌</i>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps?q=pg+hostel+near+UPES+Bidholi&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <div class="slider">
+      <img id="img1" src="https://i.ibb.co/6cfg4FHH/Whats-App-Image-2025-04-07-at-13-02-26-7da3e286.jpg" alt="Slider Image 1">
+      <img id="img2" src="https://i.ibb.co/qtgQZ92/Whats-App-Image-2025-04-07-at-13-02-28-62494ca6.jpg" alt="Slider Image 2">
+    </div>
+  </div>
+
+  <div class="bottom-section">
+    <h2>What would you like to search for today??</h2>
+    <div class="buttons">
+      <a href="hostels.html">Hostel</a>
+      <a href="pg.html">PG</a>
+      <a href="flats.html">Flats</a>
+    </div>
+  </div>
+
+  <div class="location-card-container">
+    <div class="location-card">
+      <h3>Bidholi</h3>
+      <p>Located near the UPES campus, Bidholi has multiple verified PGs and hostels suitable for students.</p>
+    </div>
+    <div class="location-card">
+      <h3>Kandoli</h3>
+      <p>Known for peaceful surroundings, Kandoli offers a range of flats and PGs for both students and faculty.</p>
+    </div>
+    <div class="location-card">
+      <h3>Pondha</h3>
+      <p>Pondha is a budget-friendly area with access to local transport, shops, and essential services.</p>
+    </div>
+  </div>
+
+  <script>
+    const images1 = [
+    "https://i.ibb.co/6cfg4FHH/Whats-App-Image-2025-04-07-at-13-02-26-7da3e286.jpg",
+    "https://i.ibb.co/4RQsmL13/Whats-App-Image-2025-04-07-at-13-02-26-79abf23b.jpg",
+    "https://i.ibb.co/1FjcMG7/Whats-App-Image-2025-04-07-at-13-02-26-d1ee0a4f.jpg"
+    ];
+
+    const images2 = [
+    "https://i.ibb.co/HTSC1yvX/Whats-App-Image-2025-04-07-at-13-02-26-e2241df2.jpg",
+    "https://i.ibb.co/9kn4Q1Tc/Whats-App-Image-2025-04-07-at-13-02-28-1aab4dcb.jpg",
+    "https://i.ibb.co/qtgQZ92/Whats-App-Image-2025-04-07-at-13-02-28-62494ca6.jpg"
+
+    ];
+
+
+
+    let index = 0;
+    setInterval(() => {
+      document.getElementById("img1").src = images1[index];
+      document.getElementById("img2").src = images2[index];
+      index = (index + 1) % images1.length;
+    }, 3000);
+
+    function clearSearch() {
+      document.querySelector(".search-box input").value = "";
+    }
+  </script>
+</body>
+</html>
